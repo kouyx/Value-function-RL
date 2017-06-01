@@ -3,7 +3,7 @@ from data_yin import prob, rw  # or data_david
 
 
 def value_func(prob_mat, reward_arr, gamma, value_former, recur_depth=0):
-    value_current = np.round((reward_arr + gamma * np.dot(prob_mat, value_former)), decimals=2)
+    value_current = np.round((reward_arr + gamma * np.dot(prob_mat, value_former)), decimals=3)
     if any(value_current != value_former):
         recur_depth += 1
         value_former = value_func(prob_mat, reward_arr, gamma, value_current, recur_depth)
