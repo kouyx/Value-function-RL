@@ -15,16 +15,12 @@ def value_func(prob_mat, reward_arr, gamma, value_former, recur_depth=0):
 
 if __name__ == '__main__':
     try:
-        gm_input = raw_input("Input a gamma between 0 and 1 (or leave empty to set to 0.9):")
-        if gm_input == "":
-            gm = 0.9
-        elif float(gm_input) > 1 or float(gm_input) < 0:
+        gm = float(raw_input("Input a gamma between 0 and 1:\n(invalid input would set gamma to default 0.9):"))
+        if gm > 1 or gm < 0:
             print("Input is out of range [0, 1]. Set gamma to default (0.9).")
             gm = 0.9
-        else:
-            gm = float(gm_input)
     except ValueError:
-        print("Input is not a number. Set gamma to default (0.9).")
+        print("Non-numeric input. Set gamma to default (0.9).")
         gm = 0.9
     finally:
         print("Gamma = {}".format(gm))
